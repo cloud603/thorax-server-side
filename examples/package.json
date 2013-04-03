@@ -1,0 +1,17 @@
+{
+	"name": "backbone-serverside-requirejs-express-example",
+	"description": "An example of running backbone-serverside within an express stack",
+	"version": "0.1.0",
+	"author": "Conis <conis.yi@gmail.com>",
+	"private": true,
+	"keywords": ["backbone", "browser", "cheerio"],
+	"dependencies": {
+		"cheerio": "git://github.com/cloud603/cheerio.git#master",
+		"requirejs": ">=2.1.5",
+		"express": ">=3.1.0",
+		"handlebars": "*"
+	},
+	"engines": {
+		"node": "*"
+	}
+}

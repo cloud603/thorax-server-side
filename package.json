@@ -1,0 +1,20 @@
+{
+	"name": "thorax-server-side",
+	"description": "Thorax replacements and DOM adapters for running it within node.js",
+	"version": "0.1.0",
+	"author": "conis.yi@gmail.com",
+	"homepage": "https://github.com/cloud603/thorax-server-side",
+	"bugs": {
+		"url": "http://github.com/owner/project/issues"
+	},
+	"private": false,
+	"keywords": ["backbone", "browser", "cheerio"],
+	"dependencies": {
+		"cheerio": "git://github.com/cloud603/cheerio.git#master",
+		"underscore": "*",
+		"xmlhttprequest": "*"
+	},
+	"engines": {
+		"node": "*"
+	}
+}
