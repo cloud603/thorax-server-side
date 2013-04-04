@@ -1,7 +1,7 @@
-define(['thorax', 'underscore', 'handlebars', 'text!../templates/master.handlebars', 'module'],
-	function(Thorax, _, Handlebars, template, module) {
+define(['backbone', 'underscore', 'handlebars', 'text!../templates/master.handlebars', 'module'],
+	function(Backbone, _, Handlebars, template, module) {
 	console.log('Loading master view');
-	return Thorax.View.extend({
+	return Backbone.View.extend({
 		template: Handlebars.compile(template),
 		state: 'init',
 		
@@ -16,6 +16,7 @@ define(['thorax', 'underscore', 'handlebars', 'text!../templates/master.handleba
 			var context = { collection: this.collection.toJSON() },
 				html = this.template(context);
 
+			console.log(html);
 			// Replace the element contents
 			this.$el.html(html);
 			

@@ -9,7 +9,7 @@ var express = require('express'),
 		_ = require('underscore'),
 		cheerio = require('cheerio'),
 		requirejs = require('requirejs'),
-		thorax = require('./app/components/thorax/thorax'),
+		//thorax = require('./app/components/thorax/thorax'),
 		adapters = require('../');
 
 var server = express(),
@@ -38,11 +38,9 @@ requirejs.config({
 });
 
 
-requirejs(['app', 'thorax'], function (app, Thorax) {
+requirejs(['app', 'backbone', 'thorax'], function (app, Backbone, Thorax) {
 	console.log('App initialized');
 
-	return;
-	/*
 	// URL Endpoint for the 'web pages'
 	server.get(/\/(items\/\d+)?$/, function(req, res) {
 		// Remove preceeding '/'
@@ -63,11 +61,12 @@ requirejs(['app', 'thorax'], function (app, Thorax) {
 			// Just a simple workaround in case we timeouted or such
 			if (res.headersSent) {
 				console.warn('Could not respond to request in time; not rendered');
-			}
-			
+			};
+
 			if (status === 'error') {
 				res.send(500, 'Our framework blew it. Sorry.');
-			}
+			};
+
 			if (status === 'ready') {
 				// Set the bootstrapped attribute to communicate client we're already done for first render
 				var $root = $html('#main');
@@ -92,7 +91,6 @@ requirejs(['app', 'thorax'], function (app, Thorax) {
 		];
 		res.send(JSON.stringify(items));
 	});
-	*/
 });
 
 http.createServer(server).listen(server.get('port'), function() {

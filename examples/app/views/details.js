@@ -1,7 +1,7 @@
-define(['thorax', 'underscore', 'handlebars', 'text!../templates/details.handlebars', 'module'],
-	function(Thorax, _, Handlebars, template, module) {
+define(['backbone', 'underscore', 'handlebars', 'text!../templates/details.handlebars', 'module'],
+	function(Backbone, _, Handlebars, template, module) {
 	console.log('Loading details view');
-	return Thorax.View.extend({
+	return Backbone.View.extend({
 		template: Handlebars.compile(template),
 		state: 'init',
 		item: null,
@@ -14,7 +14,8 @@ define(['thorax', 'underscore', 'handlebars', 'text!../templates/details.handleb
 		render: function() {
 			// Render the template into a HTML
 			console.log('Rendering details view');
-			
+
+			console.log(this.collection);
 			// Try to find the item from the collection; if not found, fallback to first model
 			var model = this.collection.get(this.item) || this.collection.at(0),
 				context = { model: model.toJSON() },

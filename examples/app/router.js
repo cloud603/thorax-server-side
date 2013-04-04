@@ -1,19 +1,19 @@
 define([
-	'jquery', 'underscore', 'thorax',
+	'jquery', 'underscore', 'backbone',
 	'./views/master', './views/details',
 	'./collections/items',
 	'module'],
-	function($, _, Thorax,
+	function($, _, Backbone,
 		MasterView, DetailsView,
 		ItemsCollection, module) {
-	return Thorax.Router.extend({
+	return Backbone.Router.extend({
 		selector: '#main',
 		state: null,
 		
 		routes: {
 			// These routes are the 'app level pages' that do not necessarily map
 			// one-to-one with views
-			'':  'item',
+			'':  'item',			//index
 			'items/:item': 'item'
 		},
 		
@@ -25,7 +25,7 @@ define([
 		},
 		
 		initialize: function(options) {
-			console.log('Router initializing', options);
+			console.log('Router initializing');
 			
 			// Create the views so that they won't need to be re-created and append
 			// to DOM; Hide them by default

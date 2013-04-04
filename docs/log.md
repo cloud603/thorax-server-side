@@ -55,3 +55,7 @@ if(isBrowser){
 * lib/backbone改为lib/thorax
 
 * 将/examples下的模块依赖cheerio改为cloud603下的cheerio项目
+
+* samples/view/*.js，基于ADM规范定义一个模块，返回实例化的Thorax.View
+
+* 加入todos测试模块，分别在models/collections/views/template/css加入对应的模块

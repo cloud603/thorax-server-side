@@ -5,7 +5,7 @@
     "requirejs": "~2.1.5",
     "jquery": "~1.9.1",
     "backbone": "~1.0.0",
-		"thorax": "*",
+		"thorax": "git://github.com/cloud603/thorax.git",
     "lodash": "~1.0.1",
     "requirejs-text": "~2.0.5",
     "handlebars": "~1.0.0-rc.3",

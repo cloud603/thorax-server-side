@@ -20,6 +20,7 @@
 				deps: ['module'],
 				exports: 'jQuery',
 				init: function (module) {
+					console.log("init jQuery");
 					// Fetch the jQuery adapter parameters from the server-app if avail.
 					if (module && module.config) {
 						return module.config().jquery;
@@ -32,6 +33,7 @@
 			'underscore': {
 				exports: '_',
 				init: function () {
+					console.log('init underscore');
 					return this._.noConflict();
 				}
 			},
@@ -39,6 +41,7 @@
 				deps: ['underscore', 'jquery'],
 				exports: 'Backbone',
 				init: function (_, $) {
+					console.log('init backbone');
 					// Inject adapters when in server
 					if (!isBrowser) {
 						var adapters = require('../');
@@ -52,14 +55,16 @@
 			},
 			'thorax': {
 				exports: 'Thorax',
-				deps: ['underscore', 'jquery', 'backbone'],
-				init: function(_, $, Backbone){
+				deps: ['underscore', 'jquery', 'backbone', 'handlebars'],
+				init: function(_, $, Backbone, Handlebars){
+					console.log('init thorax');
 					return this.Thorax;
 				}
 			},
 			'handlebars': {
 				exports: 'Handlebars',
 				init: function() {
+					console.log('init handlebars');
 					return this.Handlebars;
 				}
 			}
@@ -78,7 +83,10 @@
 	define(['backbone', 'jquery', 'router', 'thorax'], function(Backbone, $, Router, Thorax) {
 		// Start the processing
 		var router = new Router();
-		Thorax.history.start({ pushState: true });
+		Backbone.history.start({
+			pushState: true,
+			silent: false
+		});
 		// Pass the app state back, just in case somebody needed it
 		var app = {
 			Thorax: Thorax,

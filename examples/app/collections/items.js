@@ -1,15 +1,15 @@
 define(['thorax', 'underscore', 'module'], function(Thorax, _, module) {
 	
 	return Thorax.Collection.extend({
-		state: 'init',
 		// Fetch the URL from config
 		url: module.config().url,
-		
+		state: 'init',
+
 		initialize: function() {
 			// Automatically update the model state when such comes
 			this.on('all', _.bind(this.handleEvent, this));
 		},
-		
+
 		handleEvent: function(event) {
 			var newState,
 				oldState = this.state;
