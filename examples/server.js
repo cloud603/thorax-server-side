@@ -19,7 +19,7 @@ var server = express(),
 		$html = cheerio.load(index);
 
 server.configure(function() {
-	server.set('port', process.env.PORT || 8080);
+	server.set('port', process.env.PORT || 8000);
 	server.use(express.logger('dev'));
 	// Use 'app' suffix for all the static data
 	server.use('/components', express.static(path.join(__dirname, 'components')));

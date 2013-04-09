@@ -82,7 +82,9 @@
 		function(Router, Backbone, Thorax, module) {
 			// Start the processing
 		var router = new Router();
-		Backbone.history.start();
+		Backbone.history.start({
+			silent: true
+		});
 
 		// Pass the app state back, just in case somebody needed it
 		var app = {

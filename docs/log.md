@@ -74,3 +74,9 @@ if(isBrowser){
 * render时模板中的collection出现问题，如果将模板中的collection移除，则browser和server都正常。
   1. 如果不重载view.render，browser正常，但server无法正常渲染出collection，对于collection部分会被渲染为`[object Object]`
   2. 如果重载view.render，当使用`this.template(context);`时，browser出现`TypeError: parent is undefined`(827行)，而server端报`Cannot read property '_helperName' of undefined`。两边的代码一致，但出错的位置不一。b端是parent未定义，而server端是已经定义，但parent没有_helperName属性。
+
+* 客户端与服务器端collection不一至的原因，与`Handlebars.registerViewHelper('collection'`相关。经查，是第1317行中使用nodeType的问题，因为Cheerio是没有nodeType的。代码:`return node.nodeType === ELEMENT_NODE_TYPE;`
+
+* cheerio与jQuery有差异，例如在使用`$(el).after(target)`时，如果target不是一个cheerio对象，则会被插入一个[object Object]。目前的解决方法是在调用after的时候，将target用$调用一次，如：`$(el).after($(target))`。同样的问题也存在于调用prepend和replaceWith等方法。
+
+* 在Backbone.history.start时，如果使用了silent: true，则会服务器与客户端都渲染，如果不使用，则客户端无法使用事件。
