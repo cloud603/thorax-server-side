@@ -1,5 +1,5 @@
 {
-	"name": "thorax-server-side", 
+	"name": "thorax-serverside", 
 	"description": "Thorax replacements and DOM adapters for running it within node.js",
 	"version": "0.1.0",
 	"author": "conis.yi@gmail.com",
